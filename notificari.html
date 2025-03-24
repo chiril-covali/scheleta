@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notificări - matematica.md</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .notifications-container {
+            padding: 20px;
+        }
+        .notification {
+            background: #fff;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-left: 4px solid #3498db;
+        }
+        .notification.urgent {
+            border-left-color: #e74c3c;
+        }
+        .notification.warning {
+            border-left-color: #f1c40f;
+        }
+        .notification.success {
+            border-left-color: #2ecc71;
+        }
+        .notification-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .notification-time {
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        .notification-actions {
+            margin-top: 10px;
+        }
+        .notification-actions button {
+            padding: 5px 15px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .btn-confirm {
+            background: #2ecc71;
+            color: white;
+        }
+        .btn-decline {
+            background: #e74c3c;
+            color: white;
+        }
+        .btn-neutral {
+            background: #95a5a6;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="logo">
+            <img src="https://static.tildacdn.one/tild6363-3066-4465-b366-323935323561/Matematicamd_Logo.png" alt="matematica.md logo" class="logo-img">
+            <span>Cabinetul Personal al Elevului</span>
+        </div>
+        <div class="user-info">
+            <span>Bine ai venit, Chiril Covali</span>
+            <a href="#" class="logout-btn">Ieșire</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="cabinet-personal.html">Profilul Meu</a></li>
+                    <li><a href="cursuri.html">Cumpără Cursuri</a></li>
+                    <li><a href="chat.html">Chat</a></li>
+                    <li><a href="calendar.html">Calendar</a></li>
+                    <li><a href="progress.html">Progres</a></li>
+                    <li><a href="plati.html">Plăți și Sold</a></li>
+                    <li><a href="biblioteca-digitala.html">Biblioteca Digitală</a></li>
+                    <li><a href="forum.html">Forum Discuții</a></li>
+                    <li><a href="teme.html">Sistem Teme</a></li>
+                    <li><a href="idei.html">Idei și Sugestii</a></li>
+                    <li><a href="notificari.html" class="active">Notificări</a></li>
+                    <li class="parent-profile"><a href="parent-dashboard.html">Profilul Părintelui</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <h1>Notificări</h1>
+            <div class="notifications-container">
+                <!-- Notificare Sold -->
+                <div class="notification urgent">
+                    <div class="notification-header">
+                        <h3>Atenție: Sold Insuficient</h3>
+                        <span class="notification-time">Acum 1 oră</span>
+                    </div>
+                    <p>Soldul dumneavoastră va deveni negativ în curând. Mai aveți doar 2 ore achitate. Vă rugăm să reîncărcați contul pentru a continua lecțiile.</p>
+                    <div class="notification-actions">
+                        <button class="btn-confirm">Reîncarcă Sold</button>
+                    </div>
+                </div>
+
+                <!-- Notificare Lecție -->
+                <div class="notification warning">
+                    <div class="notification-header">
+                        <h3>Lecție în Curând</h3>
+                        <span class="notification-time">Acum 30 minute</span>
+                    </div>
+                    <p>Lecția de Algebră începe în 2 ore (15:00). Vă rugăm să confirmați prezența.</p>
+                    <div class="notification-actions">
+                        <button class="btn-confirm">Voi Participa</button>
+                        <button class="btn-decline">Nu Pot Participa</button>
+                    </div>
+                </div>
+
+                <!-- Notificare Programare -->
+                <div class="notification">
+                    <div class="notification-header">
+                        <h3>Lecție Programată pentru Mâine</h3>
+                        <span class="notification-time">Acum 2 ore</span>
+                    </div>
+                    <p>Mâine la ora 14:00 aveți programată lecția de Geometrie. Vă rugăm să confirmați disponibilitatea.</p>
+                    <div class="notification-actions">
+                        <button class="btn-confirm">Confirm</button>
+                        <button class="btn-decline">Nu Pot Participa</button>
+                    </div>
+                </div>
+
+                <!-- Notificare pentru Profesor -->
+                <div class="notification success">
+                    <div class="notification-header">
+                        <h3>Informație Grupă</h3>
+                        <span class="notification-time">Acum 3 ore</span>
+                    </div>
+                    <p>Grupa s-a completat! Startul lecțiilor va fi mâine la ora 15:00. Nota medie a grupei: 8.5. Număr total de elevi: 12</p>
+                    <div class="notification-actions">
+                        <button class="btn-neutral">Înțeles</button>
+                    </div>
+                </div>
+
+                <!-- Notificare Progres -->
+                <div class="notification">
+                    <div class="notification-header">
+                        <h3>Raport Săptămânal</h3>
+                        <span class="notification-time">Acum 1 zi</span>
+                    </div>
+                    <p>Săptămâna aceasta ați participat la 3 din 3 lecții programate. Continuați în același ritm!</p>
+                    <div class="notification-actions">
+                        <button class="btn-neutral">Vezi Detalii</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

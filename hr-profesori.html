@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR Profesori - matematica.md</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .hr-dashboard {
+            padding: 20px;
+        }
+
+        .candidates-section {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .candidate-form {
+            display: grid;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .candidates-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .candidates-table th,
+        .candidates-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .candidates-table th {
+            background-color: #f8f9fa;
+        }
+
+        .evaluation-section {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .evaluation-grid {
+            display: grid;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .evaluation-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+        }
+
+        .rating-stars {
+            display: flex;
+            gap: 5px;
+            margin-top: 10px;
+        }
+
+        .rating-stars button {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: #ffd700;
+        }
+
+        .status-badge {
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .status-new {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+
+        .status-interview {
+            background: #fff3e0;
+            color: #f57c00;
+        }
+
+        .status-evaluation {
+            background: #e8f5e9;
+            color: #388e3c;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .btn-primary {
+            background: #007bff;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .documents-section {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .document-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .document-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Acasă</a></li>
+                    <li><a href="registrul-profesorului.html">Registrul Profesorului</a></li>
+                    <li class="active"><a href="hr-profesori.html">HR Profesori</a></li>
+                    <li><a href="cursuri.html">Cursuri</a></li>
+                    <li><a href="calendar.html">Calendar</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <div class="hr-dashboard">
+                <h1>Managementul Candidaților</h1>
+
+                <div class="candidates-section">
+                    <h2>Adaugă Candidat Nou</h2>
+                    <form class="candidate-form">
+                        <div class="form-group">
+                            <label for="name">Nume și Prenume</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefon</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Disciplină</label>
+                            <select id="subject" required>
+                                <option value="">Selectează disciplina</option>
+                                <option value="matematica">Matematică</option>
+                                <option value="fizica">Fizică</option>
+                                <option value="informatica">Informatică</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="experience">Experiență (ani)</label>
+                            <input type="number" id="experience" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="notes">Note</label>
+                            <textarea id="notes" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Adaugă Candidat</button>
+                    </form>
+
+                    <h2>Lista Candidaților</h2>
+                    <table class="candidates-table">
+                        <thead>
+                            <tr>
+                                <th>Nume</th>
+                                <th>Disciplină</th>
+                                <th>Status</th>
+                                <th>Evaluare</th>
+                                <th>Acțiuni</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Ion Popescu</td>
+                                <td>Matematică</td>
+                                <td><span class="status-badge status-new">Nou</span></td>
+                                <td>-</td>
+                                <td class="action-buttons">
+                                    <button class="btn btn-primary">Evaluează</button>
+                                    <button class="btn btn-secondary">Detalii</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Maria Ionescu</td>
+                                <td>Fizică</td>
+                                <td><span class="status-badge status-interview">Interviu</span></td>
+                                <td>4.5/5</td>
+                                <td class="action-buttons">
+                                    <button class="btn btn-primary">Evaluează</button>
+                                    <button class="btn btn-secondary">Detalii</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="evaluation-section">
+                    <h2>Evaluare Candidat</h2>
+                    <div class="evaluation-grid">
+                        <div class="evaluation-item">
+                            <h3>Competențe Pedagogice</h3>
+                            <div class="rating-stars">
+                                <button>★</button>
+                                <button>★</button>
+                                <button>★</button>
+                                <button>★</button>
+                                <button>★</button>
+                            </div>
+                        </div>
+                        <div class="evaluation-item">
+                            <h3>Cunoștințe Tehnice</h3>
+                            <div class="rating-stars">
+                                <button>★</button>
+                                <button>★</button>
+                                <button>★</button>
+                                <button>★</button>
+                                <button>★</button>
+                            </div>
+                        </div>
+                        <div class="evaluation-item">
+                            <h3>Abilități de Comunicare</h3>
+                            <div class="rating-stars">
+                                <button>★</button>
+                                <button>★</button>
+                                <button>★</button>
+                                <button>★</button>
+                                <button>★</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="documents-section">
+                    <h2>Documente Necesare</h2>
+                    <ul class="document-list">
+                        <li class="document-item">
+                            <span>CV</span>
+                            <button class="btn btn-secondary">Încarcă</button>
+                        </li>
+                        <li class="document-item">
+                            <span>Diplomă de Studii</span>
+                            <button class="btn btn-secondary">Încarcă</button>
+                        </li>
+                        <li class="document-item">
+                            <span>Certificat de Calificare</span>
+                            <button class="btn btn-secondary">Încarcă</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Funcționalitate pentru evaluare cu stele
+        document.querySelectorAll('.rating-stars').forEach(container => {
+            const stars = container.querySelectorAll('button');
+            stars.forEach((star, index) => {
+                star.addEventListener('click', () => {
+                    stars.forEach((s, i) => {
+                        s.style.color = i <= index ? '#ffd700' : '#ddd';
+                    });
+                });
+            });
+        });
+
+        // Funcționalitate pentru formularul de adăugare candidat
+        document.querySelector('.candidate-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Aici se va implementa logica pentru salvarea datelor candidatului
+            alert('Candidatul a fost adăugat cu succes!');
+            this.reset();
+        });
+
+        // Funcționalitate pentru butoanele de acțiuni
+        document.querySelectorAll('.action-buttons .btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const action = this.textContent.toLowerCase();
+                const row = this.closest('tr');
+                const name = row.querySelector('td').textContent;
+                
+                if (action === 'evaluează') {
+                    // Aici se va implementa logica pentru deschiderea formularului de evaluare
+                    console.log('Evaluare pentru:', name);
+                } else if (action === 'detalii') {
+                    // Aici se va implementa logica pentru afișarea detaliilor
+                    console.log('Detalii pentru:', name);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

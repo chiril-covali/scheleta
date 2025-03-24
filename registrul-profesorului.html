@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrul Profesorului - matematica.md</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .teacher-register {
+            padding: 20px;
+        }
+
+        .group-selector {
+            margin-bottom: 20px;
+        }
+
+        .group-selector select {
+            padding: 8px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            width: 200px;
+        }
+
+        .attendance-section {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .attendance-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .attendance-table th,
+        .attendance-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .attendance-table th {
+            background-color: #f8f9fa;
+        }
+
+        .attendance-controls {
+            display: flex;
+            gap: 10px;
+        }
+
+        .attendance-button {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .present-btn {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .absent-btn {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .chat-section {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-messages {
+            flex-grow: 1;
+            overflow-y: auto;
+            margin-bottom: 15px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 4px;
+        }
+
+        .message {
+            margin-bottom: 10px;
+            padding: 8px;
+            border-radius: 4px;
+            max-width: 80%;
+        }
+
+        .message.teacher {
+            background: #007bff;
+            color: white;
+            margin-left: auto;
+        }
+
+        .message.student {
+            background: #e9ecef;
+            margin-right: auto;
+        }
+
+        .chat-input {
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-input input {
+            flex-grow: 1;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .chat-input button {
+            padding: 8px 16px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .calendar-section {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .progress-bar {
+            background: #f8f9fa;
+            height: 30px;
+            border-radius: 15px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: #007bff;
+            height: 100%;
+            width: 30%;
+            transition: width 0.3s ease;
+        }
+
+        .homework-section {
+            margin-top: 15px;
+        }
+
+        .homework-input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Acasă</a></li>
+                    <li class="active"><a href="registrul-profesorului.html">Registrul Profesorului</a></li>
+                    <li><a href="cursuri.html">Cursuri</a></li>
+                    <li><a href="calendar.html">Calendar</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <div class="teacher-register">
+                <h1>Registrul Profesorului</h1>
+
+                <div class="group-selector">
+                    <select id="groupSelect">
+                        <option value="">Selectează Grupa</option>
+                        <option value="1">Grupa 1 - Matematică Avansată</option>
+                        <option value="2">Grupa 2 - Matematică Începători</option>
+                        <option value="3">Grupa 3 - Pregătire BAC</option>
+                    </select>
+                </div>
+
+                <div class="attendance-section">
+                    <h2>Prezența la Lecția 3/10</h2>
+                    <table class="attendance-table">
+                        <thead>
+                            <tr>
+                                <th>Nume Elev</th>
+                                <th>Prezență</th>
+                                <th>Acțiuni</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Ion Popescu</td>
+                                <td>Prezent</td>
+                                <td class="attendance-controls">
+                                    <button class="attendance-button present-btn">P</button>
+                                    <button class="attendance-button absent-btn">A</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Maria Ionescu</td>
+                                <td>Absent</td>
+                                <td class="attendance-controls">
+                                    <button class="attendance-button present-btn">P</button>
+                                    <button class="attendance-button absent-btn">A</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="chat-section">
+                    <h2>Chat cu Grupa</h2>
+                    <div class="chat-messages">
+                        <div class="message teacher">Bună ziua! Astăzi vom lucra exercițiile de la pagina 45.</div>
+                        <div class="message student">Am înțeles, mulțumim!</div>
+                    </div>
+                    <div class="chat-input">
+                        <input type="text" placeholder="Scrie un mesaj...">
+                        <button>Trimite</button>
+                    </div>
+                </div>
+
+                <div class="calendar-section">
+                    <h2>Progres Lecții</h2>
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <p>Lecția 3 din 10</p>
+
+                    <div class="homework-section">
+                        <h3>Tema pentru acasă</h3>
+                        <textarea class="homework-input" placeholder="Introduceți tema pentru acasă..."></textarea>
+                        <button class="attendance-button present-btn">Salvează Tema</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Funcționalitate pentru butoanele de prezență
+        document.querySelectorAll('.attendance-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const row = this.closest('tr');
+                const statusCell = row.querySelector('td:nth-child(2)');
+                if (this.classList.contains('present-btn')) {
+                    statusCell.textContent = 'Prezent';
+                } else {
+                    statusCell.textContent = 'Absent';
+                }
+            });
+        });
+
+        // Funcționalitate pentru chat
+        const chatInput = document.querySelector('.chat-input input');
+        const chatButton = document.querySelector('.chat-input button');
+        const chatMessages = document.querySelector('.chat-messages');
+
+        chatButton.addEventListener('click', () => {
+            if (chatInput.value.trim()) {
+                const message = document.createElement('div');
+                message.className = 'message teacher';
+                message.textContent = chatInput.value;
+                chatMessages.appendChild(message);
+                chatInput.value = '';
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+        });
+
+        // Funcționalitate pentru selectarea grupei
+        document.getElementById('groupSelect').addEventListener('change', function() {
+            // Aici se va implementa logica pentru încărcarea datelor grupei selectate
+            console.log('Grupa selectată:', this.value);
+        });
+    </script>
+</body>
+</html>

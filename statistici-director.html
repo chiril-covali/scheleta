@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistici Director - matematica.md</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .dashboard-container {
+            padding: 20px;
+        }
+
+        .stats-category {
+            background: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .stats-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: #f8f9fa;
+            border-radius: 6px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin: 10px 0;
+        }
+
+        .stat-label {
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+
+        .trend-positive {
+            color: #27ae60;
+        }
+
+        .trend-negative {
+            color: #e74c3c;
+        }
+
+        .chart-container {
+            height: 300px;
+            margin-bottom: 20px;
+        }
+
+        .filters {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .filter-select {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="logo">
+            <img src="https://static.tildacdn.one/tild6363-3066-4465-b366-323935323561/Matematicamd_Logo.png" alt="matematica.md logo" class="logo-img">
+            <span>Statistici Director</span>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        <div class="filters">
+            <select class="filter-select" id="periodFilter">
+                <option value="today">Astăzi</option>
+                <option value="week">Ultima săptămână</option>
+                <option value="month">Ultima lună</option>
+                <option value="year">Ultimul an</option>
+            </select>
+        </div>
+
+        <!-- Statistici Financiare -->
+        <div class="stats-category">
+            <div class="stats-header">
+                <h2>Statistici Financiare</h2>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">Venit Total</div>
+                    <div class="stat-value">1,250,000 MDL</div>
+                    <div class="trend-positive">+15% față de luna trecută</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Profit Net</div>
+                    <div class="stat-value">375,000 MDL</div>
+                    <div class="trend-positive">+12% față de luna trecută</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Venit Mediu per Elev</div>
+                    <div class="stat-value">2,500 MDL</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Rata de Colectare a Plăților</div>
+                    <div class="stat-value">95%</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Cost per Elev</div>
+                    <div class="stat-value">1,800 MDL</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Buget Marketing</div>
+                    <div class="stat-value">50,000 MDL</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Statistici Educaționale -->
+        <div class="stats-category">
+            <div class="stats-header">
+                <h2>Statistici Educaționale</h2>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">Număr Total Elevi</div>
+                    <div class="stat-value">500</div>
+                    <div class="trend-positive">+25 față de luna trecută</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Nota Medie</div>
+                    <div class="stat-value">8.5</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Rata de Promovare</div>
+                    <div class="stat-value">92%</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Rata de Prezență</div>
+                    <div class="stat-value">88%</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Număr Grupe Active</div>
+                    <div class="stat-value">45</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Elevi Olimpici</div>
+                    <div class="stat-value">25</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Statistici Operaționale -->
+        <div class="stats-category">
+            <div class="stats-header">
+                <h2>Statistici Operaționale</h2>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">Număr Profesori</div>
+                    <div class="stat-value">30</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Ore Predate Lunar</div>
+                    <div class="stat-value">1,200</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Rata de Retenție Elevi</div>
+                    <div class="stat-value">85%</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Satisfacție Clienți</div>
+                    <div class="stat-value">4.8/5</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Timp Mediu per Lecție</div>
+                    <div class="stat-value">60 min</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Rata de Ocupare Săli</div>
+                    <div class="stat-value">78%</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Statistici Marketing și Creștere -->
+        <div class="stats-category">
+            <div class="stats-header">
+                <h2>Marketing și Creștere</h2>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">Elevi Noi Luna Curentă</div>
+                    <div class="stat-value">45</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Cost Achiziție Elev</div>
+                    <div class="stat-value">250 MDL</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Rata de Conversie</div>
+                    <div class="stat-value">35%</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Vizite Website</div>
+                    <div class="stat-value">12,000</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Recenzii Pozitive</div>
+                    <div class="stat-value">95%</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Recomandări</div>
+                    <div class="stat-value">120</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Statistici Resurse Umane -->
+        <div class="stats-category">
+            <div class="stats-header">
+                <h2>Resurse Umane</h2>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">Satisfacție Angajați</div>
+                    <div class="stat-value">4.5/5</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Rata de Retenție Profesori</div>
+                    <div class="stat-value">90%</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Ore Training</div>
+                    <div class="stat-value">120</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Evaluare Medie Profesori</div>
+                    <div class="stat-value">4.7/5</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Productivitate</div>
+                    <div class="stat-value">92%</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Zile Concediu Folosite</div>
+                    <div class="stat-value">450</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Performanță Academică Detaliată -->
+    <div class="stats-category">
+        <div class="stats-header">
+            <h2>Performanță Academică Detaliată</h2>
+        </div>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Rata Progres Individual</div>
+                <div class="stat-value">75%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Participări la Olimpiade</div>
+                <div class="stat-value">85</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Premii Obținute</div>
+                <div class="stat-value">32</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Proiecte Finalizate</div>
+                <div class="stat-value">120</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Rata Îmbunătățire Note</div>
+                <div class="stat-value">68%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Teme Predate la Timp</div>
+                <div class="stat-value">92%</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Analiza Financiară Detaliată -->
+    <div class="stats-category">
+        <div class="stats-header">
+            <h2>Analiza Financiară Detaliată</h2>
+        </div>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">ROI Marketing</div>
+                <div class="stat-value">320%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Cost per Oră</div>
+                <div class="stat-value">150 MDL</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Venit per Profesor</div>
+                <div class="stat-value">45,000 MDL</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Economii Operaționale</div>
+                <div class="stat-value">75,000 MDL</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Investiții Tehnologie</div>
+                <div class="stat-value">200,000 MDL</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Marjă Profit</div>
+                <div class="stat-value">35%</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Eficiență Operațională -->
+    <div class="stats-category">
+        <div class="stats-header">
+            <h2>Eficiență Operațională</h2>
+        </div>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Utilizare Resurse</div>
+                <div class="stat-value">88%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Timp Pregătire Lecții</div>
+                <div class="stat-value">2.5 ore</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Eficiență Administrativă</div>
+                <div class="stat-value">95%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Rata Automatizare</div>
+                <div class="stat-value">65%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Timp Răspuns Support</div>
+                <div class="stat-value">15 min</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Eficiență Energetică</div>
+                <div class="stat-value">82%</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Satisfacție și Feedback -->
+    <div class="stats-category">
+        <div class="stats-header">
+            <h2>Satisfacție și Feedback</h2>
+        </div>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">NPS Score</div>
+                <div class="stat-value">75</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Satisfacție Părinți</div>
+                <div class="stat-value">4.6/5</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Feedback Pozitiv</div>
+                <div class="stat-value">92%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Rata Recomandare</div>
+                <div class="stat-value">88%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Satisfacție Cursuri</div>
+                <div class="stat-value">4.7/5</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Rezolvare Probleme</div>
+                <div class="stat-value">95%</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dezvoltare și Inovație -->
+    <div class="stats-category">
+        <div class="stats-header">
+            <h2>Dezvoltare și Inovație</h2>
+        </div>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Cursuri Noi</div>
+                <div class="stat-value">15</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Inovații Implementate</div>
+                <div class="stat-value">8</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Tehnologii Noi</div>
+                <div class="stat-value">12</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Proiecte R&D</div>
+                <div class="stat-value">5</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Parteneriate Noi</div>
+                <div class="stat-value">10</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Certificări Noi</div>
+                <div class="stat-value">25</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Analiza Detaliată a Elevilor -->
+    <div class="stats-category">
+        <div class="stats-header">
+            <h2>Analiza Detaliată a Elevilor</h2>
+        </div>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Timp Mediu de Studiu</div>
+                <div class="stat-value">4.2 ore/zi</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Rata de Completare Teme</div>
+                <div class="stat-value">88%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Participare la Activități</div>
+                <div class="stat-value">78%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Nivel Mediu de Stres</div>
+                <div class="stat-value">Moderat</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Indice de Motivație</div>
+                <div class="stat-value">8.2/10</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Rata de Retenție Info</div>
+                <div class="stat-value">85%</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Performanța Profesorilor -->
+    <div class="stats-category">
+        <div class="stats-header">
+            <h2>Performanța Profesorilor</h2>
+        </div>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Eficiență Predare</div>
+                <div class="stat-value">92%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Feedback Elevi</div>
+                <div class="stat-value">4.8/5</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Inovație în Predare</div>
+                <div class="stat-value">85%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Dezvoltare Profesională</div>
+                <div class="stat-value">45 ore</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Rata Succes Elevi</div>
+                <div class="stat-value">89%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Proiecte Educaționale</div>
+                <div class="stat-value">15</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Indicatori de Calitate -->
+    <div class="stats-category">
+        <div class="stats-header">
+            <h2>Indicatori de Calitate</h2>
+        </div>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Standard Educațional</div>
+                <div class="stat-value">A+</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Conformitate Curriculum</div>
+                <div class="stat-value">98%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Acreditări Active</div>
+                <div class="stat-value">12</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Evaluări Externe</div>
+                <div class="stat-value">4.9/5</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Îmbunătățiri Implementate</div>
+                <div class="stat-value">35</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Satisfacție Stakeholderi</div>
+                <div class="stat-value">94%</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Statistici de Comunicare și Interacțiune -->
+    <div class="stats-category">
+        <div class="stats-header">
+            <h2>Comunicare și Interacțiune</h2>
+        </div>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Întâlniri Părinte-Profesor</div>
+                <div class="stat-value">450</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Comunicări Digitale</div>
+                <div class="stat-value">12,500</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Rata Răspuns</div>
+                <div class="stat-value">95%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Timp Mediu Răspuns</div>
+                <div class="stat-value">2.5 ore</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Satisfacție Comunicare</div>
+                <div class="stat-value">4.7/5</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Evenimente Organizate</div>
+                <div class="stat-value">85</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Indicatori de Dezvoltare Strategică -->
+    <div class="stats-category">
+        <div class="stats-header">
+            <h2>Dezvoltare Strategică</h2>
+        </div>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Obiective Atinse</div>
+                <div class="stat-value">92%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Proiecte în Derulare</div>
+                <div class="stat-value">18</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Investiții Planificate</div>
+                <div class="stat-value">500,000 MDL</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Expansiune Teritorială</div>
+                <div class="stat-value">+3 locații</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Creștere Anuală</div>
+                <div class="stat-value">25%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Sustenabilitate</div>
+                <div class="stat-value">95%</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Analiza Financiară Avansată -->
+    <div class="stats-category">
+        <div class="stats-header">
+            <h2>Analiza Financiară Avansată</h2>
+        </div>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Flux de Numerar Net</div>
+                <div class="stat-value">+280,000 MDL</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Rata de Creștere Venituri</div>
+                <div class="stat-value">28%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Eficiență Cost/Beneficiu</div>
+                <div class="stat-value">1.8</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Investiții în Echipamente</div>
+                <div class="stat-value">150,000 MDL</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Rezerve Financiare</div>
+                <div class="stat-value">400,000 MDL</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Rata de Reinvestire</div>
+                <div class="stat-value">22%</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Managementul Resurselor -->
+    <div class="stats-category">
+        <div class="stats-header">
+            <h2>Managementul Resurselor</h2>
+        </div>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Utilizare Săli de Clasă</div>
+                <div class="stat-value">92%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Eficiență Energetică</div>
+                <div class="stat-value">85%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Resurse Digitale Active</div>
+                <div class="stat-value">2,500</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Rata Utilizare Echipamente</div>
+                <div class="stat-value">88%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Costuri Întreținere</div>
+                <div class="stat-value">45,000 MDL</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Eficiență Spațiu</div>
+                <div class="stat-value">95%</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Indicatori de Marketing și Promovare -->
+    <div class="stats-category">
+        <div class="stats-header">
+            <h2>Marketing și Promovare</h2>
+        </div>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Reach Social Media</div>
+                <div class="stat-value">50,000</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Engagement Rate</div>
+                <div class="stat-value">8.5%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Lead-uri Generate</div>
+                <div class="stat-value">320</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Cost per Lead</div>
+                <div class="stat-value">180 MDL</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Campanii Active</div>
+                <div class="stat-value">12</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">ROI Campanii</div>
+                <div class="stat-value">245%</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Performanță Digitală -->
+    <div class="stats-category">
+        <div class="stats-header">
+            <h2>Performanță Digitală</h2>
+        </div>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Uptime Platformă</div>
+                <div class="stat-value">99.9%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Utilizatori Activi</div>
+                <div class="stat-value">2,800</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Timp Mediu Sesiune</div>
+                <div class="stat-value">45 min</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Rata Conversie</div>
+                <div class="stat-value">4.2%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Satisfacție UX</div>
+                <div class="stat-value">4.6/5</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Trafic Organic</div>
+                <div class="stat-value">65%</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dezvoltare Curriculum -->
+    <div class="stats-category">
+        <div class="stats-header">
+            <h2>Dezvoltare Curriculum</h2>
+        </div>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Materiale Noi</div>
+                <div class="stat-value">250</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Actualizări Curriculum</div>
+                <div class="stat-value">85</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Feedback Materiale</div>
+                <div class="stat-value">4.8/5</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Resurse Interactive</div>
+                <div class="stat-value">420</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Eficiență Învățare</div>
+                <div class="stat-value">92%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Diversitate Conținut</div>
+                <div class="stat-value">95%</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Analiza Comportamentală -->
+    <div class="stats-category">
+        <div class="stats-header">
+            <h2>Analiza Comportamentală</h2>
+        </div>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Engagement Cursuri</div>
+                <div class="stat-value">87%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Rata Completare</div>
+                <div class="stat-value">82%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Interacțiuni/Sesiune</div>
+                <div class="stat-value">24</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Timp pe Sarcină</div>
+                <div class="stat-value">28 min</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Pattern-uri Învățare</div>
+                <div class="stat-value">15</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Adaptabilitate</div>
+                <div class="stat-value">90%</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Managementul Calității -->
+    <div class="stats-category">
+        <div class="stats-header">
+            <h2>Managementul Calității</h2>
+        </div>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Audituri Interne</div>
+                <div class="stat-value">24</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Conformitate</div>
+                <div class="stat-value">98%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Îmbunătățiri Propuse</div>
+                <div class="stat-value">45</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Timp Rezolvare Issues</div>
+                <div class="stat-value">48h</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Satisfacție Proces</div>
+                <div class="stat-value">4.5/5</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Eficiență Sistem</div>
+                <div class="stat-value">94%</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dezvoltare Profesională -->
+    <div class="stats-category">
+        <div class="stats-header">
+            <h2>Dezvoltare Profesională</h2>
+        </div>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Certificări Obținute</div>
+                <div class="stat-value">85</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Ore Training</div>
+                <div class="stat-value">1,200</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Competențe Noi</div>
+                <div class="stat-value">35</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Mentorat Activ</div>
+                <div class="stat-value">28</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Progres Carieră</div>
+                <div class="stat-value">75%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Satisfacție Training</div>
+                <div class="stat-value">4.7/5</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/stats.js"></script>
+</body>
+</html>

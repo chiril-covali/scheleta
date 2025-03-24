@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Înregistrare Oră de Probă - matematica.md</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .registration-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .user-type-selection {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+
+        .user-type-btn {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            background: white;
+            color: #3498db;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .user-type-btn:hover,
+        .user-type-btn.active {
+            background: #3498db;
+            color: white;
+        }
+
+        .registration-form {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: none;
+        }
+
+        .registration-form.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+
+        .submit-btn {
+            background: #3498db;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #2980b9;
+        }
+
+        .error-message {
+            color: #e74c3c;
+            font-size: 0.9em;
+            margin-top: 5px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="logo">
+            <img src="https://static.tildacdn.one/tild6363-3066-4465-b366-323935323561/Matematicamd_Logo.png" alt="matematica.md logo" class="logo-img">
+            <span>Înregistrare Oră de Probă</span>
+        </div>
+    </header>
+
+    <div class="registration-container">
+        <div id="groupInfo" class="registration-form active" style="margin-bottom: 20px;">
+            <h2>Grupa de Matematică - Clasa 9</h2>
+            <div class="group-status status-active">În desfășurare (15/40 ore)</div>
+            <div class="group-schedule">
+                <strong>Orar:</strong> Luni și Miercuri, 17:00-18:00
+                <br>
+                <strong>Locuri disponibile:</strong> 2 din 3
+            </div>
+            <div class="teacher-info">
+                <strong>Profesor:</strong> Daniela Rotaru
+                <br>
+                <span>25 ani experiență în predare</span>
+                <br>
+                <span>Profesor pentru elevi olimpici</span>
+                <br>
+                <span>Nota 9-10</span>
+                <br>
+                <strong>Preț:</strong> 218 MDL/oră
+            </div>
+        </div>
+        <div class="user-type-selection">
+            <button class="user-type-btn" onclick="showForm('student')">Sunt Elev</button>
+            <button class="user-type-btn" onclick="showForm('parent')">Sunt Părinte</button>
+        </div>
+
+        <form id="studentForm" class="registration-form" onsubmit="handleSubmit(event, 'student')">
+            <h2>Înregistrare ca Elev</h2>
+            
+            <div class="form-group">
+                <label for="studentName">Numele tău</label>
+                <input type="text" id="studentName" name="studentName">
+                <div class="error-message" id="studentNameError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="studentSurname">Prenumele tău</label>
+                <input type="text" id="studentSurname" name="studentSurname">
+                <div class="error-message" id="studentSurnameError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="studentParentName">Numele părintelui</label>
+                <input type="text" id="studentParentName" name="studentParentName">
+                <div class="error-message" id="studentParentNameError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="studentParentSurname">Prenumele părintelui</label>
+                <input type="text" id="studentParentSurname" name="studentParentSurname">
+                <div class="error-message" id="studentParentSurnameError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="studentEmail">Email</label>
+                <input type="email" id="studentEmail" name="studentEmail">
+                <div class="error-message" id="studentEmailError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="studentPhone">Număr de telefon</label>
+                <input type="tel" id="studentPhone" name="studentPhone">
+                <div class="error-message" id="studentPhoneError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="studentPassword">Parolă</label>
+                <input type="password" id="studentPassword" name="studentPassword">
+                <div class="error-message" id="studentPasswordError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="studentConfirmPassword">Confirmă parola</label>
+                <input type="password" id="studentConfirmPassword" name="studentConfirmPassword">
+                <div class="error-message" id="studentConfirmPasswordError"></div>
+            </div>
+
+            <button type="submit" class="submit-btn">Înregistrează-te</button>
+        </form>
+
+        <form id="parentForm" class="registration-form" onsubmit="handleSubmit(event, 'parent')">
+            <h2>Înregistrare ca Părinte</h2>
+            
+            <div class="form-group">
+                <label for="parentName">Numele dvs.</label>
+                <input type="text" id="parentName" name="parentName">
+                <div class="error-message" id="parentNameError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="parentSurname">Prenumele dvs.</label>
+                <input type="text" id="parentSurname" name="parentSurname">
+                <div class="error-message" id="parentSurnameError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="childName">Numele copilului</label>
+                <input type="text" id="childName" name="childName">
+                <div class="error-message" id="childNameError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="childSurname">Prenumele copilului</label>
+                <input type="text" id="childSurname" name="childSurname">
+                <div class="error-message" id="childSurnameError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="parentEmail">Email</label>
+                <input type="email" id="parentEmail" name="parentEmail" required>
+                <div class="error-message" id="parentEmailError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="parentPhone">Număr de telefon</label>
+                <input type="tel" id="parentPhone" name="parentPhone" required>
+                <div class="error-message" id="parentPhoneError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="parentPassword">Parolă</label>
+                <input type="password" id="parentPassword" name="parentPassword" required>
+                <div class="error-message" id="parentPasswordError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="parentConfirmPassword">Confirmă parola</label>
+                <input type="password" id="parentConfirmPassword" name="parentConfirmPassword" required>
+                <div class="error-message" id="parentConfirmPasswordError"></div>
+            </div>
+
+            <button type="submit" class="submit-btn">Înregistrează-te</button>
+        </form>
+    </div>
+
+    <script src="js/group-info.js"></script>
+<script>
+function showForm(type) {
+    document.getElementById('studentForm').classList.remove('active');
+    document.getElementById('parentForm').classList.remove('active');
+    document.getElementById(type + 'Form').classList.add('active');
+}
+
+function handleSubmit(event, type) {
+    event.preventDefault();
+    window.location.href = 'cabinet-personal.html';
+}
+</script>
+</body>
+</html>

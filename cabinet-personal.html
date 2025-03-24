@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cabinetul Personal al Elevului - matematica.md</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Înlocuim importurile vechi cu cele noi pentru FullCalendar -->
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>
+    <script src="js/feedback.js"></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="logo">
+            <img src="https://static.tildacdn.one/tild6363-3066-4465-b366-323935323561/Matematicamd_Logo.png" alt="matematica.md logo" class="logo-img">
+            <span>Cabinetul Personal al Elevului</span>
+        </div>
+        <div class="user-info">
+            <span>Bine ai venit, Chiril Covali</span>
+            <a href="#" class="logout-btn">Ieșire</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Profilul Meu</a></li>
+                    <li><a href="cursuri.html">Cumpără Cursuri</a></li>
+                    <li><a href="chat.html">Chat</a></li>
+                    <li><a href="calendar.html">Calendar</a></li>
+                    <li><a href="progress.html">Progres</a></li>
+                    <li><a href="plati.html">Plăți și Sold</a></li>
+                    <li><a href="biblioteca-digitala.html">Biblioteca Digitală</a></li>
+                    <li><a href="forum.html">Forum Discuții</a></li>
+                    <li><a href="teme.html">Sistem Teme</a></li>
+                    <li><a href="idei.html">Idei și Sugestii</a></li>
+                    <li class="parent-profile"><a href="parent-dashboard.html">Profilul Părintelui</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <section id="dashboard">
+                <div class="profile-header">
+                    <div class="profile-info">
+                        <img src="https://diez.md/wp-content/uploads/2024/07/Chiril-Covali.jpg" alt="Poza Profil" class="profile-photo">
+                        <div class="profile-details">
+                            <h2>Chiril Covali</h2>
+                            <p class="student-info">Clasa: a 9-a | Nivel: Avansat</p>
+                            <p class="student-group">Grupa: Matematică Intensiv</p>
+                            <p class="sold">Sold: <strong>120 MDL</strong></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="primary-btn" onclick="window.location.href='inregistrare-client.html'">Înregistrare la Curs Nou</button>
+                    <button class="secondary-btn" onclick="window.location.href='modificare-curs.html'">Modificare Curs</button>
+                </div>
+
+                <div class="quick-info">
+                    <div class="upcoming-lessons">
+                        <h3>Următoarele Lecții</h3>
+                        <div class="lesson-card">
+                            <span class="time">Astăzi, 15:00</span>
+                            <span class="subject">Matematică - Algebra</span>
+                            <span class="status">În curând</span>
+                        </div>
+                        <div class="lesson-card">
+                            <span class="time">Mâine, 14:00</span>
+                            <span class="subject">Geometrie</span>
+                        </div>
+                    </div>
+
+                    <div class="schedule">
+                        <h3>Orar Săptămânal</h3>
+                        <table class="schedule-table">
+                            <tr>
+                                <th>Ziua</th>
+                                <th>Ora</th>
+                                <th>Materia</th>
+                            </tr>
+                            <tr>
+                                <td>Luni</td>
+                                <td>15:00</td>
+                                <td>Algebră</td>
+                            </tr>
+                            <tr>
+                                <td>Miercuri</td>
+                                <td>14:00</td>
+                                <td>Geometrie</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="calendar-widget">
+                    <h3>Calendar Lecții</h3>
+                    <div id="calendar"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridWeek',
+            locale: 'ro',
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,dayGridWeek,timeGridDay'
+            },
+            events: [
+                {
+                    title: 'Algebră',
+                    daysOfWeek: [1], // Luni
+                    startTime: '15:00',
+                    endTime: '16:30',
+                    location: 'Ismail 44',
+                    color: '#3498db',
+                    extendedProps: {
+                        location: 'Ismail 44'
+                    }
+                },
+                {
+                    title: 'Geometrie',
+                    daysOfWeek: [3], // Miercuri
+                    startTime: '14:00',
+                    endTime: '15:30',
+                    location: 'Ismail 44',
+                    color: '#2ecc71',
+                    extendedProps: {
+                        location: 'Ismail 44'
+                    }
+                },
+                {
+                    title: 'Trigonometrie',
+                    daysOfWeek: [5], // Vineri
+                    startTime: '16:00',
+                    endTime: '17:30',
+                    location: 'Ismail 44',
+                    color: '#e74c3c',
+                    extendedProps: {
+                        location: 'Ismail 44'
+                    }
+                }
+            ],
+            eventContent: function(arg) {
+                return {
+                    html: `<div class="fc-event-title">${arg.event.title}</div>
+                           <div class="fc-event-time">${arg.timeText}</div>
+                           <div class="fc-event-location">Ismail 44</div>`
+                }
+            },
+            slotMinTime: '08:00:00',
+            slotMaxTime: '20:00:00'
+        });
+        calendar.render();
+    });
+    </script>
+</body>
+</html>

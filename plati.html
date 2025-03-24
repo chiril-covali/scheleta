@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plăți și Sold - Cabinetul Personal al Elevului</title>
+    <link rel="stylesheet" href="style.css">
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="logo">
+            <img src="https://static.tildacdn.one/tild6363-3066-4465-b366-323935323561/Matematicamd_Logo.png" alt="matematica.md logo" class="logo-img">
+            <span>Cabinetul Personal al Elevului</span>
+        </div>
+        <div class="user-info">
+            <span>Bine ai venit, Chiril Covali</span>
+            <a href="#" class="logout-btn">Ieșire</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="cabinet-personal.html">Profilul Meu</a></li>
+                    <li><a href="cursuri.html">Cumpără Cursuri</a></li>
+                    <li><a href="chat.html">Chat</a></li>
+                    <li><a href="calendar.html">Calendar</a></li>
+                    <li><a href="progress.html">Progres</a></li>
+                    <li><a href="plati.html" class="active">Plăți și Sold</a></li>
+                    <li class="parent-profile"><a href="parent-dashboard.html">Profilul Părintelui</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <div class="payment-dashboard">
+                <div class="payment-overview">
+                    <div class="balance-card">
+                        <h2>Sold Curent</h2>
+                        <div class="balance-amount">1,344 MDL</div>
+                        <div class="balance-details">
+                            <span>8 lecții rămase</span>
+                            <span class="next-payment">Următoarea plată: 15 Martie 2024</span>
+                        </div>
+                    </div>
+
+                    <div class="payment-stats">
+                        <div class="stats-card">
+                            <h3>Lecții Achitate în Avans</h3>
+                            <div class="stat-number">8</div>
+                            <div class="stat-label">lecții</div>
+                        </div>
+                        <div class="stats-card">
+                            <h3>Total Achitat Luna Aceasta</h3>
+                            <div class="stat-number">1,344</div>
+                            <div class="stat-label">MDL</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="payment-history">
+                    <h2>Istoric Plăți</h2>
+                    <canvas id="paymentChart"></canvas>
+                </div>
+
+                <div class="payment-calendar">
+                    <h2>Calendar Plăți și Lecții</h2>
+                    <div id="calendar"></div>
+                </div>
+
+                <div class="payment-section">
+                    <h2>Achită Lecții</h2>
+                    <div class="secure-payment">
+                        <img src="https://www.test-tree.com/wp-content/uploads/2016/07/Payement-1-edit.png" alt="Secure Payment Methods" class="payment-methods-img">
+                    </div>
+<style>
+.packages {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.package-card {
+    flex: 1;
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.package-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.package-card.recommended {
+    border: 2px solid #3498db;
+    position: relative;
+    transform: scale(1.05);
+}
+
+.package-header {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.badge {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    background: #3498db;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+}
+
+.package-price {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.amount {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #3498db;
+}
+
+.currency {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+    margin-left: 0.3rem;
+}
+
+.package-details {
+    text-align: center;
+}
+
+.package-details p {
+    margin: 0.5rem 0;
+    color: #7f8c8d;
+}
+
+.payment-form {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+.form-row {
+    display: flex;
+    gap: 1rem;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.payment-btn {
+    width: 100%;
+    padding: 1rem;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.payment-btn:hover {
+    background: #2980b9;
+}
+</style>
+
+<div class="packages">
+    <div class="package-card" data-value="4">
+        <div class="package-header">Basic</div>
+        <div class="package-price">
+            <span class="amount">672</span>
+            <span class="currency">MDL</span>
+        </div>
+        <div class="package-details">
+            <p>4 lecții</p>
+            <p>168 MDL/lecție</p>
+        </div>
+    </div>
+    <div class="package-card recommended" data-value="8">
+        <div class="package-header">
+            Popular
+            <span class="badge">Recomandat</span>
+        </div>
+        <div class="package-price">
+            <span class="amount">1344</span>
+            <span class="currency">MDL</span>
+        </div>
+        <div class="package-details">
+            <p>8 lecții</p>
+            <p>168 MDL/lecție</p>
+        </div>
+    </div>
+    <div class="package-card" data-value="12">
+        <div class="package-header">Premium</div>
+        <div class="package-price">
+            <span class="amount">2016</span>
+            <span class="currency">MDL</span>
+        </div>
+        <div class="package-details">
+            <p>12 lecții</p>
+            <p>168 MDL/lecție</p>
+        </div>
+    </div>
+</div>
+<form id="payment-form" class="payment-form">
+    <div class="form-group">
+        <label>Număr Card</label>
+        <input type="text" placeholder="1234 5678 9012 3456" maxlength="19">
+    </div>
+    <div class="form-row">
+        <div class="form-group">
+            <label>Data Expirării</label>
+            <input type="text" placeholder="MM/YY">
+        </div>
+        <div class="form-group">
+            <label>CVV</label>
+            <input type="text" placeholder="123" maxlength="3">
+        </div>
+    </div>
+    <button type="submit" class="payment-btn">Achită Acum</button>
+</form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Payment History Chart
+        const ctx = document.getElementById('paymentChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Ian', 'Feb', 'Mar', 'Apr', 'Mai', 'Iun'],
+                datasets: [{
+                    label: 'Plăți Lunare (MDL)',
+                    data: [1344, 1344, 2016, 1344, 1344, 1344],
+                    borderColor: '#3498db',
+                    tension: 0.1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Calendar
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                events: [
+                    {
+                        title: 'Algebră (Achitată)',
+                        start: '2024-03-05',
+                        color: '#27ae60'
+                    },
+                    {
+                        title: 'Geometrie (Neachitată)',
+                        start: '2024-03-15',
+                        color: '#e74c3c'
+                    },
+                    {
+                        title: 'Următoarea Plată',
+                        start: '2024-03-15',
+                        color: '#f1c40f'
+                    }
+                ]
+            });
+            calendar.render();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificare Curs - matematica.md</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="logo">
+            <img src="https://static.tildacdn.one/tild6363-3066-4465-b366-323935323561/Matematicamd_Logo.png" alt="matematica.md logo" class="logo-img">
+            <span>Cabinetul Personal al Elevului</span>
+        </div>
+        <div class="user-info">
+            <span>Bine ai venit, Chiril Covali</span>
+            <a href="#" class="logout-btn">Ieșire</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="cabinet-personal.html">Profilul Meu</a></li>
+                    <li><a href="cursuri.html">Cumpără Cursuri</a></li>
+                    <li><a href="chat.html">Chat</a></li>
+                    <li><a href="calendar.html">Calendar</a></li>
+                    <li><a href="progress.html">Progres</a></li>
+                    <li><a href="plati.html">Plăți și Sold</a></li>
+                    <li><a href="biblioteca-digitala.html">Biblioteca Digitală</a></li>
+                    <li><a href="forum.html">Forum Discuții</a></li>
+                    <li><a href="teme.html">Sistem Teme</a></li>
+                    <li><a href="idei.html">Idei și Sugestii</a></li>
+                    <li class="parent-profile"><a href="parent-dashboard.html">Profilul Părintelui</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <section class="modification-form">
+                <h2>Modificare Curs</h2>
+                <div class="feedback-section">
+                    <h3>Ce doriți să modificați?</h3>
+                    <div class="feedback-options">
+                        <a href="grupe-disponibile.html?motiv=grup" class="feedback-option">
+                            <button>Nu îmi convine grupul</button>
+                        </a>
+                        <a href="grupe-disponibile.html?motiv=orar" class="feedback-option">
+                            <button>Nu îmi convine orarul</button>
+                        </a>
+                        <a href="grupe-disponibile.html?motiv=profesor" class="feedback-option">
+                            <button>Nu îmi convine profesorul</button>
+                        </a>
+                        <a href="grupe-disponibile.html?motiv=pret" class="feedback-option">
+                            <button>Nu îmi convine prețul</button>
+                        </a>
+                        <a href="#" class="feedback-option contact-manager" onclick="requestManagerCall()">
+                            <button>Vreau să fiu contactat de un manager</button>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+    function requestManagerCall() {
+        alert('Un manager vă va contacta în curând!');
+    }
+    </script>
+</body>
+</html>

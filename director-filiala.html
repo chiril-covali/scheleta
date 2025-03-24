@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Director Filială - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .teacher-dashboard {
+            padding: 20px;
+        }
+
+        .stats-overview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .teacher-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .teacher-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .teacher-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .teacher-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+            background-color: #f0f0f0;
+        }
+
+        .teacher-info {
+            flex-grow: 1;
+        }
+
+        .teacher-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+
+        .availability-schedule {
+            margin-top: 15px;
+        }
+
+        .pay-button {
+            width: 100%;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .pay-button:hover {
+            background: #0056b3;
+        }
+
+        .filter-section {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .filter-button {
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            background: white;
+            cursor: pointer;
+        }
+
+        .filter-button.active {
+            background: #007bff;
+            color: white;
+            border-color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Acasă</a></li>
+                    <li><a href="statistici-director.html">Statistici Generale</a></li>
+                    <li class="active"><a href="director-filiala.html">Gestionare Profesori</a></li>
+                    <li><a href="plati.html">Plăți</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <div class="teacher-dashboard">
+                <h1>Dashboard Director Filială</h1>
+
+                <div class="stats-overview">
+                    <div class="stat-card">
+                        <h3>Total Profesori</h3>
+                        <div class="stat-value">12</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Medie Rating</h3>
+                        <div class="stat-value">4.8/5</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Ore Predate Luna Aceasta</h3>
+                        <div class="stat-value">450</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Venit Total Lunar</h3>
+                        <div class="stat-value">75,000 MDL</div>
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <button class="filter-button active">Toți Profesorii</button>
+                    <button class="filter-button">Disponibili Acum</button>
+                    <button class="filter-button">Matematică</button>
+                    <button class="filter-button">Fizică</button>
+                    <button class="filter-button">Informatică</button>
+                </div>
+
+                <div class="teacher-list">
+                    <!-- Profesor 1 -->
+                    <div class="teacher-card">
+                        <div class="teacher-header">
+                            <div class="teacher-avatar"></div>
+                            <div class="teacher-info">
+                                <h3>Ion Popescu</h3>
+                                <p>Matematică</p>
+                            </div>
+                        </div>
+                        <div class="teacher-stats">
+                            <div class="stat-item">
+                                <div class="stat-label">Rating</div>
+                                <div class="stat-value">4.9/5</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Ore Predate</div>
+                                <div class="stat-value">45</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Salariu</div>
+                                <div class="stat-value">8,500 MDL</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Elevi</div>
+                                <div class="stat-value">28</div>
+                            </div>
+                        </div>
+                        <div class="availability-schedule">
+                            <h4>Disponibilitate</h4>
+                            <p>Luni-Vineri: 14:00 - 20:00</p>
+                            <p>Auditoriu: 301</p>
+                        </div>
+                        <button class="pay-button">Procesează Plata</button>
+                    </div>
+
+                    <!-- Profesor 2 -->
+                    <div class="teacher-card">
+                        <div class="teacher-header">
+                            <div class="teacher-avatar"></div>
+                            <div class="teacher-info">
+                                <h3>Maria Rusu</h3>
+                                <p>Fizică</p>
+                            </div>
+                        </div>
+                        <div class="teacher-stats">
+                            <div class="stat-item">
+                                <div class="stat-label">Rating</div>
+                                <div class="stat-value">4.8/5</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Ore Predate</div>
+                                <div class="stat-value">38</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Salariu</div>
+                                <div class="stat-value">7,800 MDL</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Elevi</div>
+                                <div class="stat-value">22</div>
+                            </div>
+                        </div>
+                        <div class="availability-schedule">
+                            <h4>Disponibilitate</h4>
+                            <p>Luni-Joi: 15:00 - 19:00</p>
+                            <p>Auditoriu: 205</p>
+                        </div>
+                        <button class="pay-button">Procesează Plata</button>
+                    </div>
+
+                    <!-- Profesor 3 -->
+                    <div class="teacher-card">
+                        <div class="teacher-header">
+                            <div class="teacher-avatar"></div>
+                            <div class="teacher-info">
+                                <h3>Andrei Munteanu</h3>
+                                <p>Informatică</p>
+                            </div>
+                        </div>
+                        <div class="teacher-stats">
+                            <div class="stat-item">
+                                <div class="stat-label">Rating</div>
+                                <div class="stat-value">4.7/5</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Ore Predate</div>
+                                <div class="stat-value">42</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Salariu</div>
+                                <div class="stat-value">8,200 MDL</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Elevi</div>
+                                <div class="stat-value">25</div>
+                            </div>
+                        </div>
+                        <div class="availability-schedule">
+                            <h4>Disponibilitate</h4>
+                            <p>Marți-Sâmbătă: 13:00 - 18:00</p>
+                            <p>Auditoriu: 401</p>
+                        </div>
+                        <button class="pay-button">Procesează Plata</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Funcționalitate pentru butoanele de filtrare
+        document.querySelectorAll('.filter-button').forEach(button => {
+            button.addEventListener('click', () => {
+                document.querySelectorAll('.filter-button').forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                // Aici se poate adăuga logica de filtrare
+            });
+        });
+
+        // Funcționalitate pentru butoanele de plată
+        document.querySelectorAll('.pay-button').forEach(button => {
+            button.addEventListener('click', () => {
+                alert('Sistemul de procesare a plăților va fi implementat aici');
+            });
+        });
+    </script>
+</body>
+</html>

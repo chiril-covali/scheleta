@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat - Cabinetul Personal al Elevului</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="logo">
+            <img src="https://static.tildacdn.one/tild6363-3066-4465-b366-323935323561/Matematicamd_Logo.png" alt="matematica.md logo" class="logo-img">
+            <span>Cabinetul Personal al Elevului</span>
+        </div>
+        <div class="user-info">
+            <span>Bine ai venit, Chiril Covali</span>
+            <a href="#" class="logout-btn">Ieșire</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="cabinet-personal.html">Profilul Meu</a></li>
+                    <li><a href="cursuri.html">Cumpără Cursuri</a></li>
+                    <li><a href="chat.html" class="active">Chat</a></li>
+                    <li><a href="calendar.html">Calendar</a></li>
+                    <li><a href="progress.html">Progres</a></li>
+                    <li><a href="#plati">Plăți și Sold</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <div class="chat-container">
+                <div class="chat-sidebar">
+                    <div class="chat-groups">
+                        <h3>Conversații</h3>
+                        <div class="group-selector">
+                            <div class="chat-group active" onclick="switchChat('prof-math')">
+                                <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Profesor">
+                                <div class="group-info">
+                                    <h4>Prof. Matematică</h4>
+                                    <small>Chat privat</small>
+                                </div>
+                            </div>
+                            <div class="chat-group" onclick="switchChat('group-math-9')">
+                                <img src="group-icon.png" alt="Grup">
+                                <div class="group-info">
+                                    <h4>Matematică clasa 9-a</h4>
+                                    <small>28 membri</small>
+                                </div>
+                            </div>
+                            <div class="chat-group" onclick="switchChat('group-geometry')">
+                                <img src="group-icon.png" alt="Grup">
+                                <div class="group-info">
+                                    <h4>Geometrie Avansată</h4>
+                                    <small>15 membri</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chat-main">
+                    <div class="chat-header">
+                        <h2>Prof. Matematică</h2>
+                    </div>
+
+                    <div class="chat-messages">
+                        <div class="message received">
+                            <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Profesor">
+                            <div class="message-content">
+                                <div class="message-info">
+                                    <span class="sender">Prof. Ion Matematică</span>
+                                    <span class="time">10:30</span>
+                                </div>
+                                <p>Bună ziua! Vă trimit link-ul pentru conectare la următoarea lecție: <a href="#">meet.google.com/abc-defg-hij</a></p>
+                            </div>
+                        </div>
+
+                        <div class="message received">
+                            <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Profesor">
+                            <div class="message-content">
+                                <div class="message-info">
+                                    <span class="sender">Prof. Ion Matematică</span>
+                                    <span class="time">10:32</span>
+                                </div>
+                                <p>Am atașat și materialele pentru lecția următoare:</p>
+                                <div class="attachment">
+                                    <i class="file-icon">📄</i>
+                                    <span>Trigonometrie_Lectia5.pdf</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="message received">
+                            <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Profesor">
+                            <div class="message-content">
+                                <div class="message-info">
+                                    <span class="sender">Prof. Ion Matematică</span>
+                                    <span class="time">14:15</span>
+                                </div>
+                                <p>Atenție! Pe 8 martie nu vom avea oră fiind zi liberă. Vom recupera lecția pe 10 martie la aceeași oră.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chat-input">
+                        <input type="text" placeholder="Scrie un mesaj...">
+                        <button class="attach-btn">📎</button>
+                        <button class="send-btn">➤</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

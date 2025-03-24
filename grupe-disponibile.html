@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupe Disponibile - matematica.md</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .groups-container {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .filters-panel {
+            flex: 0 0 30%;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .groups-list {
+            flex: 0 0 70%;
+        }
+
+        .group-card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .group-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .group-schedule {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+
+        .teacher-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .teacher-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .price-info {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+
+        .group-status {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+
+        .status-active {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .status-pending {
+            background: #fff3e0;
+            color: #ef6c00;
+        }
+
+        .action-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .action-button:hover {
+            background: #2980b9;
+        }
+
+        .filter-section {
+            margin-bottom: 20px;
+        }
+
+        .filter-section h3 {
+            margin-bottom: 10px;
+        }
+
+        .filter-option {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="logo">
+            <img src="https://static.tildacdn.one/tild6363-3066-4465-b366-323935323561/Matematicamd_Logo.png" alt="matematica.md logo" class="logo-img">
+            <span>Grupe Disponibile</span>
+        </div>
+    </header>
+
+    <div class="container groups-container">
+        <!-- Panoul de filtre -->
+        <div class="filters-panel">
+            <h2>Filtre Selectate</h2>
+            <div class="filter-section">
+                <h3>Mod de studiu</h3>
+                <div class="filter-option">
+                    <input type="radio" name="studyMode" value="online" checked> Online
+                </div>
+                <div class="filter-option">
+                    <input type="radio" name="studyMode" value="offline"> Offline
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h3>Clasa</h3>
+                <div class="filter-option">
+                    <input type="radio" name="class" value="5" checked> Clasa 5
+                </div>
+                <div class="filter-option">
+                    <input type="radio" name="class" value="6"> Clasa 6
+                </div>
+                <div class="filter-option">
+                    <input type="radio" name="class" value="7"> Clasa 7
+                </div>
+                <div class="filter-option">
+                    <input type="radio" name="class" value="8"> Clasa 8
+                </div>
+                <div class="filter-option">
+                    <input type="radio" name="class" value="9"> Clasa 9
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h3>Profil</h3>
+                <div class="filter-option">
+                    <input type="radio" name="profile" value="real" checked> Real
+                </div>
+                <div class="filter-option">
+                    <input type="radio" name="profile" value="uman"> Uman
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h3>Limba de predare</h3>
+                <div class="filter-option">
+                    <input type="radio" name="language" value="romana" checked> Română
+                </div>
+                <div class="filter-option">
+                    <input type="radio" name="language" value="rusa"> Rusă
+                </div>
+                <div class="filter-option">
+                    <input type="radio" name="language" value="engleza"> Engleză
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h3>Format Grup</h3>
+                <div class="filter-option">
+                    <input type="checkbox" name="format" value="individual"> Individual
+                </div>
+                <div class="filter-option">
+                    <input type="checkbox" name="format" value="group3"> Grup de 3
+                </div>
+                <div class="filter-option">
+                    <input type="checkbox" name="format" value="group6"> Grup de 6
+                </div>
+            </div>
+        </div>
+
+        <!-- Lista de grupe -->
+        <div class="groups-list">
+            <!-- Exemplu de grupă -->
+            <div class="group-card">
+                <div class="group-header">
+                    <h3>Grupa de Matematică - Clasa 5</h3>
+                    <span class="group-status status-active">În desfășurare (10/40 ore)</span>
+                </div>
+
+                <div class="group-schedule">
+                    <strong>Orar:</strong> Marți și Joi, 17:00-18:00
+                    <br>
+                    <strong>Locuri disponibile:</strong> 2 din 6
+                </div>
+
+                <div class="teacher-info">
+                    <div class="teacher-avatar">
+                        <svg width="24" height="24" viewBox="0 0 24 24">
+                            <path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <strong>Prof. Maria Popescu</strong>
+                        <br>
+                        <span>20 ani experiență în predare</span>
+                        <br>
+                        <span>Olimpic național la matematică</span>
+                    </div>
+                </div>
+
+                <div class="price-info">
+                    <strong>Preț:</strong> 168 MDL/oră (grupa de 6)
+                </div>
+
+            
+                <a href="javascript:void(0)" class="action-button" onclick="redirectToRegistration()">Înregistrează-te la oră de probă</a>
+            </div>
+
+            <!-- Adăugați mai multe grupe aici -->
+        </div>
+    </div>
+
+    <script src="js/groups.js"></script>
+    <script>
+        function redirectToRegistration() {
+            window.location.href = 'inregistrare-proba.html';
+            // Obține informațiile despre grupă
+            const groupInfo = {
+                name: 'Grupa de Matematică - Clasa 5',
+                schedule: 'Marți și Joi, 17:00-18:00',
+                teacher: 'Prof. Maria Popescu',
+                price: '168 MDL/oră'
+            };
+
+            // Codifică parametrii pentru URL
+            const params = new URLSearchParams(groupInfo);
+            
+            // Redirecționează către pagina de înregistrare cu parametrii
+            window.location.href = `inregistrare-proba.html?${params.toString()}`;
+        }
+    </script>
+</body>
+</html>

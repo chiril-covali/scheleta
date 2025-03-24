@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Manager - Cabinetul Personal al Elevului</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .dashboard-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            color: #3498db;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        .chart-container {
+            background: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .chart-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+        }
+
+        .team-performance {
+            background: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .team-member {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .team-member:last-child {
+            border-bottom: none;
+        }
+
+        .member-info {
+            flex-grow: 1;
+        }
+
+        .member-stats {
+            display: flex;
+            gap: 20px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #eee;
+            border-radius: 4px;
+            margin-top: 5px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #3498db;
+            border-radius: 4px;
+        }
+
+        .action-buttons {
+            margin-bottom: 20px;
+        }
+
+        .action-btn {
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .action-btn:hover {
+            background: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="logo">
+            <img src="https://static.tildacdn.one/tild6363-3066-4465-b366-323935323561/Matematicamd_Logo.png" alt="matematica.md logo" class="logo-img">
+            <span>Dashboard Manager</span>
+        </div>
+        <div class="user-info">
+            <span>Manager: Ion Popescu</span>
+            <a href="#" class="logout-btn">Ieșire</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="manager-dashboard.html" class="active">Dashboard</a></li>
+                    <li><a href="#" onclick="showModal('addStudentModal')">Adaugă Elev Nou</a></li>
+                    <li><a href="grupe-disponibile.html">Gestionare Grupe</a></li>
+                    <li><a href="#">Rapoarte</a></li>
+                    <li><a href="#">Performanță Echipă</a></li>
+                    <li><a href="#">Setări</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <div class="action-buttons">
+                <button class="action-btn" onclick="window.location.href='grupe-disponibile.html'">+ Adaugă Elev Nou</button>
+                <button class="action-btn">+ Creează Grupă Nouă</button>
+            </div>
+
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <div class="stat-number">156</div>
+                    <div class="stat-label">Total Elevi Activi</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">92%</div>
+                    <div class="stat-label">Plan Lunar</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">87%</div>
+                    <div class="stat-label">Plan Zilnic</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">Grupe Active</div>
+                </div>
+            </div>
+
+            <div class="chart-grid">
+                <div class="chart-container">
+                    <h3>Progres Lunar</h3>
+                    <canvas id="monthlyProgressChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Distribuție Elevi pe Grupe</h3>
+                    <canvas id="studentDistributionChart"></canvas>
+                </div>
+            </div>
+
+            <div class="team-performance">
+                <h3>Performanța Echipei</h3>
+                <div class="team-member">
+                    <div class="member-info">
+                        <h4>Maria Ionescu</h4>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="member-stats">
+                        <span>45 elevi</span>
+                        <span>95% realizare</span>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-info">
+                        <h4>Alexandru Munteanu</h4>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 88%"></div>
+                        </div>
+                    </div>
+                    <div class="member-stats">
+                        <span>38 elevi</span>
+                        <span>88% realizare</span>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-info">
+                        <h4>Elena Popescu</h4>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 92%"></div>
+                        </div>
+                    </div>
+                    <div class="member-stats">
+                        <span>42 elevi</span>
+                        <span>92% realizare</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal pentru adăugare elev nou -->
+    <div id="addStudentModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h2>Adaugă Elev Nou</h2>
+            <form id="addStudentForm">
+                <div class="form-group">
+                    <label for="studentName">Nume și Prenume</label>
+                    <input type="text" id="studentName" required>
+                </div>
+                <div class="form-group">
+                    <label for="studentEmail">Email</label>
+                    <input type="email" id="studentEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="studentGroup">Grupă</label>
+                    <select id="studentGroup" required>
+                        <option value="">Selectează grupa</option>
+                        <option value="1">Grupa 1</option>
+                        <option value="2">Grupa 2</option>
+                        <option value="3">Grupa 3</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Adaugă</button>
+                    <button type="button" class="btn-secondary" onclick="hideModal('addStudentModal')">Anulează</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Inițializare grafice
+        document.addEventListener('DOMContentLoaded', function() {
+            // Grafic progres lunar
+            const monthlyCtx = document.getElementById('monthlyProgressChart').getContext('2d');
+            new Chart(monthlyCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Ian', 'Feb', 'Mar', 'Apr', 'Mai', 'Iun'],
+                    datasets: [{
+                        label: 'Progres Lunar',
+                        data: [85, 88, 92, 89, 91, 92],
+                        borderColor: '#3498db',
+                        tension: 0.1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100
+                        }
+                    }
+                }
+            });
+
+            // Grafic distribuție elevi
+            const distributionCtx = document.getElementById('studentDistributionChart').getContext('2d');
+            new Chart(distributionCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Grupa 1', 'Grupa 2', 'Grupa 3', 'Grupa 4'],
+                    datasets: [{
+                        data: [45, 38, 42, 31],
+                        backgroundColor: [
+                            '#3498db',
+                            '#e74c3c',
+                            '#2ecc71',
+                            '#f1c40f'
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true
+                }
+            });
+        });
+
+        // Funcții pentru modal
+        function showModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+        }
+
+        function hideModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        // Gestionare formular adăugare elev
+        document.getElementById('addStudentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Aici se va implementa logica de adăugare a elevului
+            hideModal('addStudentModal');
+        });
+    </script>
+</body>
+</html>

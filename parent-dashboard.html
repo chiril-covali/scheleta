@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panoul Părintelui - matematica.md</title>
+    <link rel="stylesheet" href="style.css">
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="logo">
+            <img src="https://static.tildacdn.one/tild6363-3066-4465-b366-323935323561/Matematicamd_Logo.png" alt="matematica.md logo" class="logo-img">
+            <span>Panoul Părintelui</span>
+        </div>
+        <div class="user-info">
+            <span>Bine ați venit, Maria Popescu</span>
+            <a href="#" class="logout-btn">Ieșire</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="#overview" class="active">Prezentare Generală</a></li>
+                    <li><a href="#payments">Plăți și Solduri</a></li>
+                    <li><a href="#calendar">Calendar Lecții</a></li>
+                    <li><a href="#progress">Progres Copii</a></li>
+                    <li><a href="#messages">Mesaje Profesori</a></li>
+                    <li class="student-profile"><a href="index.html">Profilul Elevului</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <section id="children-overview">
+                <h2>Copiii Mei</h2>
+                
+                <!-- Primul copil -->
+                <div class="child-card">
+                    <div class="child-header">
+                        <div class="avatar-container">
+                            <img src="https://picsum.photos/200/200?random=10" alt="Andrei Popescu" class="child-photo">
+                            <button class="avatar-change-btn" title="Schimbă poza de profil">
+                                <i class="fas fa-camera"></i>
+                            </button>
+                        </div>
+                        <div class="child-details">
+                            <h3>Andrei Popescu</h3>
+                            <p>Clasa: a 7-a</p>
+                            <p class="sold">Sold: <strong>150 RON</strong></p>
+                        </div>
+                    </div>
+                    <div class="subjects">
+                        <div class="subject-item">
+                            <span class="subject-name">Matematică (Online)</span>
+                            <span class="teacher">Prof. Ion Ionescu</span>
+                            <span class="schedule">Luni, Joi 15:00</span>
+                        </div>
+                        <div class="subject-item">
+                            <span class="subject-name">Fizică (Offline)</span>
+                            <span class="teacher">Prof. Ana Munteanu</span>
+                            <span class="schedule">Marți 16:00</span>
+                        </div>
+                    </div>
+                    <div class="student-images">
+                        <h4>Poze și Realizări</h4>
+                        <div class="image-gallery">
+                            <div class="gallery-item">
+                                <img src="https://picsum.photos/200/200?random=5" alt="Tema rezolvată la matematică" class="gallery-img">
+                                <span class="image-caption">Tema la matematică - 10.01.2024</span>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="https://picsum.photos/200/200?random=2" alt="Diplomă olimpiadă" class="gallery-img">
+                                <span class="image-caption">Olimpiada de Fizică - Locul II</span>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="https://picsum.photos/200/200?random=3" alt="Proiect școlar" class="gallery-img">
+                                <span class="image-caption">Proiect la fizică</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Al doilea copil -->
+                <div class="child-card">
+                    <div class="child-header">
+                        <div class="avatar-container">
+                            <img src="https://picsum.photos/200/200?random=1" alt="Maria Popescu" class="child-photo">
+                            <button class="avatar-change-btn" title="Schimbă poza de profil">
+                                <i class="fas fa-camera"></i>
+                            </button>
+                        </div>
+                        <div class="child-details">
+                            <h3>Maria Popescu</h3>
+                            <p>Clasa: a 5-a</p>
+                            <p class="sold">Sold: <strong>200 RON</strong></p>
+                        </div>
+                    </div>
+                    <div class="subjects">
+                        <div class="subject-item">
+                            <span class="subject-name">Matematică (Offline)</span>
+                            <span class="teacher">Prof. Elena Popov</span>
+                            <span class="schedule">Miercuri, Vineri 14:00</span>
+                        </div>
+                        <div class="subject-item">
+                            <span class="subject-name">Informatică (Online)</span>
+                            <span class="teacher">Prof. Dan Rusu</span>
+                            <span class="schedule">Marți 15:00</span>
+                        </div>
+                    </div>
+                    <div class="student-images">
+                        <h4>Poze și Realizări</h4>
+                        <div class="image-gallery">
+                            <div class="gallery-item">
+                                <img src="https://picsum.photos/200/200?random=4" alt="Proiect informatică" class="gallery-img">
+                                <span class="image-caption">Proiect la informatică - 15.01.2024</span>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="https://picsum.photos/200/200?random=5" alt="Concurs matematică" class="gallery-img">
+                                <span class="image-caption">Concurs Matematică - Mențiune</span>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="https://picsum.photos/200/200?random=6" alt="Tema rezolvată" class="gallery-img">
+                                <span class="image-caption">Tema la matematică</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="calendar-widget">
+                    <h3>Calendar Lecții - Toți Copiii</h3>
+                    <div id="calendar"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridWeek',
+            events: [
+                {
+                    title: 'Matematică - Andrei',
+                    daysOfWeek: [1, 4],
+                    startTime: '15:00',
+                    endTime: '16:30',
+                    color: '#3498db'
+                },
+                {
+                    title: 'Fizică - Andrei',
+                    daysOfWeek: [2],
+                    startTime: '16:00',
+                    endTime: '17:30',
+                    color: '#2ecc71'
+                },
+                {
+                    title: 'Matematică - Maria',
+                    daysOfWeek: [3, 5],
+                    startTime: '14:00',
+                    endTime: '15:30',
+                    color: '#e74c3c'
+                },
+                {
+                    title: 'Informatică - Maria',
+                    daysOfWeek: [2],
+                    startTime: '15:00',
+                    endTime: '16:30',
+                    color: '#9b59b6'
+                }
+            ],
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,dayGridWeek'
+            }
+        });
+        calendar.render();
+    });
+    </script>
+</body>
+</html>
